@@ -11,8 +11,8 @@ import UIKit
 class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
-    var objects = [Any]()
-
+    var objects = Store.shared.movieReviews
+    var count = 0 //TODO: delete this variable and its later usage post-testing
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +34,10 @@ class MasterViewController: UITableViewController {
 
     @objc
     func insertNewObject(_ sender: Any) {
-        objects.insert(NSDate(), at: 0)
+        
+        let newReview = MovieReview(title: "Movie #", review: "Desctiption for Movie # \(count)")
+        
+        objects.insert(newReview, at: 0)
         let indexPath = IndexPath(row: 0, section: 0)
         tableView.insertRows(at: [indexPath], with: .automatic)
     }
