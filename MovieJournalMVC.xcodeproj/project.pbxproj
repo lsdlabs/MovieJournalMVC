@@ -14,6 +14,7 @@
 		2028BE6922388CF600DA2508 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2028BE6822388CF600DA2508 /* Assets.xcassets */; };
 		2028BE6C22388CF600DA2508 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2028BE6A22388CF600DA2508 /* LaunchScreen.storyboard */; };
 		2028BE772238967000DA2508 /* MovieReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2028BE762238967000DA2508 /* MovieReview.swift */; };
+		2028BE792238980D00DA2508 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2028BE782238980D00DA2508 /* Store.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		2028BE6B22388CF600DA2508 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2028BE6D22388CF600DA2508 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2028BE762238967000DA2508 /* MovieReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieReview.swift; sourceTree = "<group>"; };
+		2028BE782238980D00DA2508 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				2028BE762238967000DA2508 /* MovieReview.swift */,
+				2028BE782238980D00DA2508 /* Store.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -165,6 +168,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2028BE792238980D00DA2508 /* Store.swift in Sources */,
 				2028BE6422388CF200DA2508 /* DetailViewController.swift in Sources */,
 				2028BE6222388CF200DA2508 /* MasterViewController.swift in Sources */,
 				2028BE772238967000DA2508 /* MovieReview.swift in Sources */,
