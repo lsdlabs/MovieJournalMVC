@@ -35,7 +35,9 @@ class MasterViewController: UITableViewController {
     @objc
     func insertNewObject(_ sender: Any) {
         
-        let newReview = MovieReview(title: "Movie #", review: "Desctiption for Movie # \(count)")
+        let newReview = MovieReview(title: "Movie # \(count)", review: "Desctiption for Movie # \(count)")
+        
+        count += 1
         
         objects.insert(newReview, at: 0)
         let indexPath = IndexPath(row: 0, section: 0)
@@ -72,6 +74,9 @@ class MasterViewController: UITableViewController {
         let object = objects[indexPath.row]
         //cell.textLabel!.text = object.description
         cell.movieTitleLabel.text! = object.title
+        
+        cell.title = object.title
+        cell.review = object.review
         return cell
     }
 
