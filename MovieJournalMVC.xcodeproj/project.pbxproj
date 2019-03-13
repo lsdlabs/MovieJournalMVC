@@ -56,15 +56,39 @@
 		2028BE5E22388CF200DA2508 /* MovieJournalMVC */ = {
 			isa = PBXGroup;
 			children = (
+				2028BE73223892F900DA2508 /* Model */,
+				2028BE742238931D00DA2508 /* View */,
+				2028BE752238932300DA2508 /* Controller */,
 				2028BE5F22388CF200DA2508 /* AppDelegate.swift */,
-				2028BE6122388CF200DA2508 /* MasterViewController.swift */,
-				2028BE6322388CF200DA2508 /* DetailViewController.swift */,
-				2028BE6522388CF200DA2508 /* Main.storyboard */,
 				2028BE6822388CF600DA2508 /* Assets.xcassets */,
 				2028BE6A22388CF600DA2508 /* LaunchScreen.storyboard */,
 				2028BE6D22388CF600DA2508 /* Info.plist */,
 			);
 			path = MovieJournalMVC;
+			sourceTree = "<group>";
+		};
+		2028BE73223892F900DA2508 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2028BE742238931D00DA2508 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2028BE6522388CF200DA2508 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2028BE752238932300DA2508 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2028BE6122388CF200DA2508 /* MasterViewController.swift */,
+				2028BE6322388CF200DA2508 /* DetailViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
