@@ -16,6 +16,7 @@
 		2028BE772238967000DA2508 /* MovieReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2028BE762238967000DA2508 /* MovieReview.swift */; };
 		2028BE792238980D00DA2508 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2028BE782238980D00DA2508 /* Store.swift */; };
 		2028BE7B2238AC3100DA2508 /* MovieReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2028BE7A2238AC3100DA2508 /* MovieReviewCell.swift */; };
+		2098D57E224137B000CC2C59 /* EntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2098D57D224137B000CC2C59 /* EntryDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		2028BE762238967000DA2508 /* MovieReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieReview.swift; sourceTree = "<group>"; };
 		2028BE782238980D00DA2508 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		2028BE7A2238AC3100DA2508 /* MovieReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieReviewCell.swift; sourceTree = "<group>"; };
+		2098D57D224137B000CC2C59 /* EntryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			children = (
 				2028BE6122388CF200DA2508 /* MasterViewController.swift */,
 				2028BE6322388CF200DA2508 /* DetailViewController.swift */,
+				2098D57D224137B000CC2C59 /* EntryDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 				2028BE6422388CF200DA2508 /* DetailViewController.swift in Sources */,
 				2028BE6222388CF200DA2508 /* MasterViewController.swift in Sources */,
 				2028BE772238967000DA2508 /* MovieReview.swift in Sources */,
+				2098D57E224137B000CC2C59 /* EntryDetailViewController.swift in Sources */,
 				2028BE6022388CF200DA2508 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
