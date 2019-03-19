@@ -9,11 +9,22 @@
 import Foundation
 
 class MovieReview {
-    var title: String = ""
-    var review: String = ""
+//    var title: String = ""
+//    var review: String = ""
+//
+//    init(title: String, review: String) {
+//        self.title = title
+//        self.review = review
+    
+    
+    let title: String
+    let review: String
+    
     
     init(title: String, review: String) {
+        
         self.title = title
         self.review = review
     }
 }
+
