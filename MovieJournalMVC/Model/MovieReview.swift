@@ -8,7 +8,11 @@
 
 import Foundation
 
-class MovieReview {
+class MovieReview: Equatable {
+    static func == (lhs: MovieReview, rhs: MovieReview) -> Bool {
+        return true
+    }
+    
 //    var title: String = ""
 //    var review: String = ""
 //
@@ -17,8 +21,8 @@ class MovieReview {
 //        self.review = review
     
     
-    let title: String
-    let review: String
+    var title: String
+    var review: String
     
     
     init(title: String, review: String) {
