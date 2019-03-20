@@ -23,35 +23,26 @@ import Foundation
 
 class Store {
     
-    static let shared = Store()
     
+    static let shared = Store()
+    private(set) var entries = [MovieReview]()
     
     func addEntryWith(title: String, review: String) {
-        
         let entry = MovieReview(title: title, review: review)
-        
         entries.append(entry)
-        
-
     }
     
+    
     func remove(entry: MovieReview) {
-        
         if let entryIndex = entries.index(of: entry) {
             entries.remove(at: entryIndex)
         }
-        
-
     }
+    
     
     func update(entry: MovieReview, with title: String, review: String) {
-        
         entry.title = title
         entry.review = review
-
     }
-    
-    
-    
-    private(set) var entries = [MovieReview]()
 }
+

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MovieReview: Equatable {
+class MovieReview: Equatable, Codable {
     static func == (lhs: MovieReview, rhs: MovieReview) -> Bool {
         return true
     }
@@ -31,4 +31,6 @@ class MovieReview: Equatable {
         self.review = review
     }
 }
+
+
 
