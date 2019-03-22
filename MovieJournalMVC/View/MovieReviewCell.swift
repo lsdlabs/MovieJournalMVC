@@ -12,6 +12,6 @@ class MovieReviewCell: UITableViewCell {
 
     
     @IBOutlet weak var movieTitleLabel: UILabel!
-    var title: String = ""
-    var review: String = ""
+    var title: String?
+    var review: String?
 }
