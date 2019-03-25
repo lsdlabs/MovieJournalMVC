@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		200F135C22494A090048CA69 /* SegueIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200F135B22494A090048CA69 /* SegueIdentifier.swift */; };
 		2028BE6022388CF200DA2508 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2028BE5F22388CF200DA2508 /* AppDelegate.swift */; };
 		2028BE6222388CF200DA2508 /* MovieReviewListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2028BE6122388CF200DA2508 /* MovieReviewListViewController.swift */; };
 		2028BE6422388CF200DA2508 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2028BE6322388CF200DA2508 /* DetailViewController.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		200F135B22494A090048CA69 /* SegueIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueIdentifier.swift; sourceTree = "<group>"; };
 		2028BE5C22388CF200DA2508 /* MovieJournalMVC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieJournalMVC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2028BE5F22388CF200DA2508 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2028BE6122388CF200DA2508 /* MovieReviewListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieReviewListViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				2028BE6122388CF200DA2508 /* MovieReviewListViewController.swift */,
 				2098D57D224137B000CC2C59 /* EntryDetailViewController.swift */,
 				2028BE6322388CF200DA2508 /* DetailViewController.swift */,
+				200F135B22494A090048CA69 /* SegueIdentifier.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 				2028BE792238980D00DA2508 /* Store.swift in Sources */,
 				2028BE6422388CF200DA2508 /* DetailViewController.swift in Sources */,
 				2028BE6222388CF200DA2508 /* MovieReviewListViewController.swift in Sources */,
+				200F135C22494A090048CA69 /* SegueIdentifier.swift in Sources */,
 				2028BE772238967000DA2508 /* MovieReview.swift in Sources */,
 				2098D57E224137B000CC2C59 /* EntryDetailViewController.swift in Sources */,
 				2028BE6022388CF200DA2508 /* AppDelegate.swift in Sources */,
