@@ -14,4 +14,10 @@ class MovieReviewCell: UITableViewCell {
     @IBOutlet weak var movieTitleLabel: UILabel!
     var title: String?
     var review: String?
+    
+    
+    
+    func getCellText(entry: String) {
+        self.textLabel?.text = entry
+    }
 }
