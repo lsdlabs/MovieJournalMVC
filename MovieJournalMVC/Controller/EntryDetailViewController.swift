@@ -56,10 +56,8 @@ class EntryDetailViewController: UIViewController, UITextFieldDelegate {
         
         if let entry = self.entry {
             Store.shared.update(entry: entry, with: title, review: text)
-            print("updated entry")
         } else {
             Store.shared.addEntryWith(title: title, review: text)
-            print("added entry")
         }
         let _ = self.navigationController?.popViewController(animated: true)
     }
