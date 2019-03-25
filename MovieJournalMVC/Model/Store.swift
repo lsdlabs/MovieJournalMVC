@@ -42,6 +42,9 @@ class Store {
     
     ///takes in an existing entry as a parameter, as well as the title and text strings to update the entry with
     func update(entry: MovieReview, with title: String, review: String) {
+        
+        var entry = entry
+        
         entry.title = title
         entry.review = review
     }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MovieReview: Equatable, Codable {
+struct MovieReview: Equatable, Codable {
     
     static func == (lhs: MovieReview, rhs: MovieReview) -> Bool {
         return true
@@ -16,13 +16,6 @@ class MovieReview: Equatable, Codable {
     
     var title: String
     var review: String
-    
-    
-    init(title: String, review: String) {
-        
-        self.title = title
-        self.review = review
-    }
 }
 
 
