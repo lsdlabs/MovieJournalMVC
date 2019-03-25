@@ -11,6 +11,9 @@ import UIKit
 class EntryDetailViewController: UIViewController, UITextFieldDelegate {
     
     
+    
+    // MARK: Properties
+    
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var reviewTextView: UITextView!
     
@@ -23,6 +26,7 @@ class EntryDetailViewController: UIViewController, UITextFieldDelegate {
     }
     
     
+    // MARK: Lifecycle
     
     ///calls update views
     override func viewDidLoad() {
@@ -31,6 +35,8 @@ class EntryDetailViewController: UIViewController, UITextFieldDelegate {
     }
     
     
+    
+    // MARK: Methods
     
     ///Checks if the optional entry property holds an entry. If it does, the function updates all view elements that reflect details about the model object movieReview (in this case, the titleTextField and reviewTextView)
     ///Will update the destination view controller with the entry details
@@ -41,6 +47,8 @@ class EntryDetailViewController: UIViewController, UITextFieldDelegate {
     }
     
     
+    
+    // MARK: Actions
     
     /// checks if the optional entry property holds an entry and if it does, it calls the update(entry: ...) function in the Store to update the properties of the entry. If not, it calls the add(entry: MovieReview) function on the Store. After adding a new entry, or updating the existing entry, it dismisses the current view.
     @IBAction func userTappedSave(_ sender: UIBarButtonItem) {
@@ -58,6 +66,7 @@ class EntryDetailViewController: UIViewController, UITextFieldDelegate {
     
     
     
+    // MARK: UITextFieldDelegate
     
     ///Calls the resignFirstResponder() method on the titleTextField to dismiss the keyboard
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

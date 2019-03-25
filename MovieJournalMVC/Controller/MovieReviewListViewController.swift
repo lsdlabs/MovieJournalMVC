@@ -12,12 +12,16 @@ class MovieReviewListViewController: UITableViewController {
     
     
     
+    // MARK: Lifecycle
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
     }
     
     
+    
+    // MARK: Segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -34,11 +38,7 @@ class MovieReviewListViewController: UITableViewController {
     
     
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    
+    // MARK: UITableViewDataSource/Delegate
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Store.shared.entries.count
@@ -53,6 +53,12 @@ class MovieReviewListViewController: UITableViewController {
         cell.textLabel?.text = entry.title
         
         return cell
+    }
+    
+    
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
     
     
