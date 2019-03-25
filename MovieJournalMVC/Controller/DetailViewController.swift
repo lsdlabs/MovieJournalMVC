@@ -14,6 +14,16 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var movieTitleLabel: UILabel!
     @IBOutlet weak var movieReviewLabel: UILabel!
     
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        configureView()
+    }
+    
+    
+    
     func configureView() {
         // Update the user interface for the detail item.
         if let detail = detailItem {
@@ -23,18 +33,10 @@ class DetailViewController: UIViewController {
             if let label = movieReviewLabel {
                 label.text = detail.review
             }
-            //            default code:
-//            if let label = detailDescriptionLabel {
-//                label.text = detail.description
-//            }
         }
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        configureView()
-    }
+
 
     var detailItem: MovieReview? {
         didSet {
@@ -42,7 +44,5 @@ class DetailViewController: UIViewController {
             configureView()
         }
     }
-
-
 }
 
