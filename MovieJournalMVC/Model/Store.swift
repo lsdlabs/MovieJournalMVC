@@ -27,11 +27,15 @@ class Store {
     static let shared = Store()
     private(set) var entries = [MovieReview]()
     
+    
+    
     ///creates a new instance of MovieReview, and adds it to the entries array
     func addEntryWith(title: String, review: String) {
         let entry = MovieReview(title: title, review: review)
         entries.append(entry)
     }
+    
+    
     
     ///removes the entry from the entries array
     func remove(entry: MovieReview) {
@@ -39,6 +43,8 @@ class Store {
             entries.remove(at: entryIndex)
         }
     }
+    
+    
     
     ///takes in an existing entry as a parameter, as well as the title and text strings to update the entry with
     func update(entry: MovieReview, with title: String, review: String) {

@@ -10,10 +10,6 @@ import Foundation
 
 struct MovieReview: Equatable, Codable {
     
-    static func == (lhs: MovieReview, rhs: MovieReview) -> Bool {
-        return true
-    }
-    
     var title: String
     var review: String
 }
