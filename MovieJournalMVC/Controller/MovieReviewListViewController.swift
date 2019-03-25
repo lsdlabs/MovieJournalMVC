@@ -25,35 +25,20 @@ class MovieReviewListViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        
         guard let identString = segue.identifier, let identifier = SegueIndentifier(rawValue: identString) else {
             super.prepare(for: segue, sender: sender)
             return
         }
+        
         switch identifier {
         case .showEntry:
             if let detailViewController = segue.destination as? EntryDetailViewController,
                 let selectedRow = tableView.indexPathForSelectedRow?.row {
-            
+                
                 let entry = Store.shared.entries[selectedRow]
                 detailViewController.entry = entry
-//            if let indexPath = tableView.indexPathForSelectedRow {
-//                let object = objects[indexPath.row] as! NSDate
-//                let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
-//                controller.detailItem = object
-//                controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-//                controller.navigationItem.leftItemsSupplementBackButton = true
             }
         }
-//        if segue.identifier == "showEntry" {
-//
-//            if let detailViewController = segue.destination as? EntryDetailViewController,
-//                let selectedRow = tableView.indexPathForSelectedRow?.row {
-//
-//                let entry = Store.shared.entries[selectedRow]
-//                detailViewController.entry = entry
-//            }
-//        }
     }
     
     
