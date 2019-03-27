@@ -14,7 +14,7 @@ class MovieReviewCell: UITableViewCell {
     @IBOutlet var movieTitleLabel: UILabel!
     
     
-    func getCellText(entry: String) {
-        self.textLabel?.text = entry
+    func setup(using review: String) {
+        self.textLabel?.text = review
     }
 }
