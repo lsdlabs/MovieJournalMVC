@@ -54,8 +54,7 @@ class MovieReviewListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: MovieReviewCell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MovieReviewCell
         let entry = Store.shared.entries[indexPath.row]
-        //cell.getCellText(entry: entry.title)
-        cell.setup(using: entry.title)
+        cell.setup(using: entry)
         
         return cell
     }
