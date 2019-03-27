@@ -27,8 +27,6 @@ class MovieReviewListViewController: UITableViewController {
         
         guard let identString = segue.identifier, let identifier = SegueIndentifier(rawValue: identString) else {
             //super.prepare(for: segue, sender: sender)
-            
-            
             return
         }
         
