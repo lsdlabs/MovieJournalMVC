@@ -10,8 +10,6 @@ import UIKit
 
 class MovieReviewListViewController: UITableViewController {
     
-    
-    
     // MARK: Lifecycle
     
     override func viewWillAppear(_ animated: Bool) {

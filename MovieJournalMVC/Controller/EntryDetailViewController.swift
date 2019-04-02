@@ -10,8 +10,6 @@ import UIKit
 
 class EntryDetailViewController: UIViewController, UITextFieldDelegate {
     
-    
-    
     // MARK: Properties
     
     @IBOutlet weak var titleTextField: UITextField!
