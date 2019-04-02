@@ -15,7 +15,6 @@ class Store {
     private(set) var entries = [MovieReview]()
     
     
-    
     ///creates a new instance of MovieReview, and adds it to the entries array
     func addEntryWith(title: String, review: String) {
         let entry = MovieReview(title: title, review: review)
