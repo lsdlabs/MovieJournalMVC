@@ -38,15 +38,6 @@ class Store {
             self.entries[index].title = title
             self.entries[index].review = review
         }
-        
     }
-    
-//    func update(entry: MovieReview, with title: String, review: String) {
-//
-//        var entry = entry
-//
-//        entry.title = title
-//        entry.review = review
-//    }
 }
 
