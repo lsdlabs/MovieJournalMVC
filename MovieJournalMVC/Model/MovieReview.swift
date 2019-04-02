@@ -13,6 +13,11 @@ struct MovieReview: Equatable, Codable {
     let id = UUID()
     var title: String
     var review: String
+    
+    init (title: String, review: String) {
+        self.title = title
+        self.review = review
+    }
 }
 
 
