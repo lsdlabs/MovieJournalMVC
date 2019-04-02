@@ -26,7 +26,6 @@ class MovieReviewListViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         guard let identString = segue.identifier, let identifier = SegueIndentifier(rawValue: identString) else {
-            //super.prepare(for: segue, sender: sender)
             return
         }
         
