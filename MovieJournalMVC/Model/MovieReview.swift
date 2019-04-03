@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MovieReview: Equatable, Codable {
+struct MovieReview: Codable {
     let id = UUID()
     var title: String
     var review: String
@@ -17,8 +17,6 @@ struct MovieReview: Equatable, Codable {
         self.title = title
         self.review = review
     }
-
-    static func ==(lhs: MovieReview, rhs: MovieReview) -> Bool {
-        return lhs.id == rhs.id
-    }
 }
+
+extension MovieReview: Equatable {}
