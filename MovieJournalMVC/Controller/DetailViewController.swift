@@ -11,30 +11,38 @@ import UIKit
 class DetailViewController: UIViewController {
 
     @IBOutlet weak var detailDescriptionLabel: UILabel!
-
-
-    func configureView() {
-        // Update the user interface for the detail item.
-        if let detail = detailItem {
-            if let label = detailDescriptionLabel {
-                label.text = detail.description
-            }
-        }
-    }
-
+    @IBOutlet weak var movieTitleLabel: UILabel!
+    @IBOutlet weak var movieReviewLabel: UILabel!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         configureView()
     }
+    
+    
+    
+    func configureView() {
+        // Update the user interface for the detail item.
+        if let detail = detailItem {
+            if let label = movieTitleLabel {
+                label.text = detail.title
+            }
+            if let label = movieReviewLabel {
+                label.text = detail.review
+            }
+        }
+    }
 
-    var detailItem: NSDate? {
+
+
+    var detailItem: MovieReview? {
         didSet {
             // Update the view.
             configureView()
         }
     }
-
-
 }
 
