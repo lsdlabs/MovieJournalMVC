@@ -11,10 +11,11 @@ import UIKit
 class MovieReviewCell: UITableViewCell {
 
     
-    @IBOutlet var movieTitleLabel: UILabel!
+    
+    @IBOutlet weak var movieTitleLabel: UILabel!
     
     
     func setup(using review: MovieReview){
-        self.textLabel?.text = review.title
+        movieTitleLabel.text = review.title
     }
 }
