@@ -17,4 +17,8 @@ struct MovieReview: Equatable, Codable {
         self.title = title
         self.review = review
     }
+
+    static func ==(lhs: MovieReview, rhs: MovieReview) -> Bool {
+        return lhs.id == rhs.id
+    }
 }
