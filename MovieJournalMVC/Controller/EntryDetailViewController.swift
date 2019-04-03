@@ -9,13 +9,10 @@
 import UIKit
 
 class EntryDetailViewController: UIViewController, UITextFieldDelegate {
-    
     // MARK: Properties
     
-    @IBOutlet weak var titleTextField: UITextField!
-    @IBOutlet weak var reviewTextView: UITextView!
-    
-    
+    @IBOutlet var titleTextField: UITextField!
+    @IBOutlet var reviewTextView: UITextView!
     
     var entry: MovieReview? {
         didSet {
@@ -23,28 +20,23 @@ class EntryDetailViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    
     // MARK: Lifecycle
     
-    ///calls update views
+    /// calls update views
     override func viewDidLoad() {
         super.viewDidLoad()
-            updateViews()
+        updateViews()
     }
-    
-    
     
     // MARK: Methods
     
-    ///Checks if the optional entry property holds an entry. If it does, the function updates all view elements that reflect details about the model object movieReview (in this case, the titleTextField and reviewTextView)
-    ///Will update the destination view controller with the entry details
+    /// Checks if the optional entry property holds an entry. If it does, the function updates all view elements that reflect details about the model object movieReview (in this case, the titleTextField and reviewTextView)
+    /// Will update the destination view controller with the entry details
     private func updateViews() {
         guard let entry = entry else { return }
         titleTextField.text = entry.title
         reviewTextView.text = entry.review
     }
-    
-    
     
     // MARK: Actions
     
@@ -57,14 +49,12 @@ class EntryDetailViewController: UIViewController, UITextFieldDelegate {
         } else {
             Store.shared.addEntryWith(title: title, review: text)
         }
-        let _ = self.navigationController?.popViewController(animated: true)
+        _ = navigationController?.popViewController(animated: true)
     }
-    
-    
     
     // MARK: UITextFieldDelegate
     
-    ///Calls the resignFirstResponder() method on the titleTextField to dismiss the keyboard
+    /// Calls the resignFirstResponder() method on the titleTextField to dismiss the keyboard
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true

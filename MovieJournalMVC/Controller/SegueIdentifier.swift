@@ -9,5 +9,5 @@
 import Foundation
 
 enum SegueIndentifier: String {
-    case showEntry = "showEntry"
+    case showEntry
 }

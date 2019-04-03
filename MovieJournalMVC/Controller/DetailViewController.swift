@@ -9,21 +9,16 @@
 import UIKit
 
 class DetailViewController: UIViewController {
+    @IBOutlet var detailDescriptionLabel: UILabel!
+    @IBOutlet var movieTitleLabel: UILabel!
+    @IBOutlet var movieReviewLabel: UILabel!
 
-    @IBOutlet weak var detailDescriptionLabel: UILabel!
-    @IBOutlet weak var movieTitleLabel: UILabel!
-    @IBOutlet weak var movieReviewLabel: UILabel!
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         configureView()
     }
-    
-    
-    
+
     func configureView() {
         // Update the user interface for the detail item.
         if let detail = detailItem {
@@ -36,8 +31,6 @@ class DetailViewController: UIViewController {
         }
     }
 
-
-
     var detailItem: MovieReview? {
         didSet {
             // Update the view.
@@ -45,4 +38,3 @@ class DetailViewController: UIViewController {
         }
     }
 }
-
