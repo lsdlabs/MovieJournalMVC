@@ -54,4 +54,15 @@ class Store {
         }
     }
     
+    
+    func saveToStorage() {
+        let encoder = JSONEncoder()
+        do {
+            let data = try encoder.encode(entries)
+            try data.write(to: fileURL())
+        } catch {
+            print("Error saving to persistent storage: \(error)")
+        }
+    }
+    
 }
