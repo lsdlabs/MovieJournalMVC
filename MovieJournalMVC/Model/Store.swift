@@ -47,8 +47,8 @@ class Store {
         let decoder = JSONDecoder()
         do{
             let data = try Data(contentsOf: fileURL())
-            let entries = try decoder.decode([MovieReview].self, from: data)
-            self.entries = entries
+            let movieReviewEntries = try decoder.decode([MovieReview].self, from: data)
+            self.entries = movieReviewEntries
         } catch {
             print("Error retrieving from persistent storage: \(error)")
         }
