@@ -32,4 +32,14 @@ class Store {
             self.entries[index].review = review
         }
     }
+    
+    // MARK: - Persistence
+    
+    func fileURL() -> URL {
+        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let fileName = "moviejournal.json"
+        let documentsDirectoryURL = urls[0].appendingPathComponent(fileName)
+        return documentsDirectoryURL
+    }
+    
 }
