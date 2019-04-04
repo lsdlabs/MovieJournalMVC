@@ -16,12 +16,14 @@ class Store {
     func addEntryWith(title: String, review: String) {
         let entry = MovieReview(title: title, review: review)
         entries.append(entry)
+        saveToStorage()
     }
     
     /// removes the entry from the entries array
     func remove(entry: MovieReview) {
         if let entryIndex = entries.index(of: entry) {
             self.entries.remove(at: entryIndex)
+            saveToStorage()
         }
     }
     
@@ -30,6 +32,7 @@ class Store {
         if let index = self.entries.index(of: entry) {
             self.entries[index].title = title
             self.entries[index].review = review
+            saveToStorage()
         }
     }
     
