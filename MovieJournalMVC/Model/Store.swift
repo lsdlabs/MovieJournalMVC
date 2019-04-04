@@ -12,6 +12,10 @@ class Store {
     static let shared = Store()
     private(set) var entries = [MovieReview]()
     
+    init() {
+        loadFromStorage()
+    }
+    
     /// creates a new instance of MovieReview, and adds it to the entries array
     func addEntryWith(title: String, review: String) {
         let entry = MovieReview(title: title, review: review)
