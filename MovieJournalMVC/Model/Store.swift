@@ -13,7 +13,7 @@ class Store {
     private(set) var entries = [MovieReview]()
     
     init() {
-        loadFromStorage()
+        self.loadFromStorage()
     }
     
     /// creates a new instance of MovieReview, and adds it to the entries array
@@ -27,7 +27,7 @@ class Store {
     func remove(entry: MovieReview) {
         if let entryIndex = entries.index(of: entry) {
             self.entries.remove(at: entryIndex)
-            saveToStorage()
+            self.saveToStorage()
         }
     }
     
@@ -36,7 +36,7 @@ class Store {
         if let index = self.entries.index(of: entry) {
             self.entries[index].title = title
             self.entries[index].review = review
-            saveToStorage()
+            self.saveToStorage()
         }
     }
     
@@ -49,10 +49,9 @@ class Store {
         return documentsDirectoryURL
     }
     
-    
     func loadFromStorage() {
         let decoder = JSONDecoder()
-        do{
+        do {
             let data = try Data(contentsOf: fileURL())
             let movieReviewEntries = try decoder.decode([MovieReview].self, from: data)
             self.entries = movieReviewEntries
@@ -60,7 +59,6 @@ class Store {
             print("Error retrieving from persistent storage: \(error)")
         }
     }
-    
     
     func saveToStorage() {
         let encoder = JSONEncoder()
@@ -71,5 +69,45 @@ class Store {
             print("Error saving to persistent storage: \(error)")
         }
     }
+}
+
+protocol FileManageable {
+    var documentsDirectory: URL { get }
     
+    func write(_ data: Data, to url: URL) throws
+    func read(from url: URL) throws -> Data?
+}
+
+extension FileManager: FileManageable {
+    var documentsDirectory: URL {
+        return urls(for: .documentDirectory, in: .userDomainMask)[0]
+    }
+    
+    func write(_ data: Data, to url: URL) throws {
+        do {
+            //try documentsDirectory.write(to: url, atomically: false, encoding: .utf8)
+            try data.write(to: url, options: .atomic)
+        } catch {
+            print(error)
+        }
+    }
+    
+    func read(from url: URL) throws -> Data? {
+        guard let data = try? Data(contentsOf: url) else {
+            print("Error")
+            // return or break
+            return nil
+        }
+        // do something with data
+        return data
+    }
+    
+    // return try String(contentsOf: url, encoding: .utf8)
+    /*
+     do {
+         return try Data(contentsOf: url)
+     } catch {
+         print(error)
+     }
+     */
 }

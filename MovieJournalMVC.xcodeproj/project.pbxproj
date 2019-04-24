@@ -17,7 +17,19 @@
 		2028BE792238980D00DA2508 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2028BE782238980D00DA2508 /* Store.swift */; };
 		2028BE7B2238AC3100DA2508 /* MovieReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2028BE7A2238AC3100DA2508 /* MovieReviewCell.swift */; };
 		2098D57E224137B000CC2C59 /* EntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2098D57D224137B000CC2C59 /* EntryDetailViewController.swift */; };
+		20C5AFD422676C8B0056B990 /* MovieJournalMVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C5AFD322676C8B0056B990 /* MovieJournalMVCTests.swift */; };
+		20C5AFDC22676CD10056B990 /* StoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C5AFDB22676CD10056B990 /* StoreTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		20C5AFD622676C8B0056B990 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2028BE5422388CF200DA2508 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2028BE5B22388CF200DA2508;
+			remoteInfo = MovieJournalMVC;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		200F135B22494A090048CA69 /* SegueIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueIdentifier.swift; sourceTree = "<group>"; };
@@ -32,10 +44,21 @@
 		2028BE782238980D00DA2508 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		2028BE7A2238AC3100DA2508 /* MovieReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieReviewCell.swift; sourceTree = "<group>"; };
 		2098D57D224137B000CC2C59 /* EntryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailViewController.swift; sourceTree = "<group>"; };
+		20C5AFD122676C8B0056B990 /* MovieJournalMVCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieJournalMVCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		20C5AFD322676C8B0056B990 /* MovieJournalMVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieJournalMVCTests.swift; sourceTree = "<group>"; };
+		20C5AFD522676C8B0056B990 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		20C5AFDB22676CD10056B990 /* StoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		2028BE5922388CF200DA2508 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		20C5AFCE22676C8B0056B990 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -49,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				2028BE5E22388CF200DA2508 /* MovieJournalMVC */,
+				20C5AFD222676C8B0056B990 /* MovieJournalMVCTests */,
 				2028BE5D22388CF200DA2508 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -57,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				2028BE5C22388CF200DA2508 /* MovieJournalMVC.app */,
+				20C5AFD122676C8B0056B990 /* MovieJournalMVCTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -103,6 +128,16 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		20C5AFD222676C8B0056B990 /* MovieJournalMVCTests */ = {
+			isa = PBXGroup;
+			children = (
+				20C5AFD322676C8B0056B990 /* MovieJournalMVCTests.swift */,
+				20C5AFD522676C8B0056B990 /* Info.plist */,
+				20C5AFDB22676CD10056B990 /* StoreTests.swift */,
+			);
+			path = MovieJournalMVCTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -123,6 +158,24 @@
 			productReference = 2028BE5C22388CF200DA2508 /* MovieJournalMVC.app */;
 			productType = "com.apple.product-type.application";
 		};
+		20C5AFD022676C8B0056B990 /* MovieJournalMVCTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 20C5AFDA22676C8B0056B990 /* Build configuration list for PBXNativeTarget "MovieJournalMVCTests" */;
+			buildPhases = (
+				20C5AFCD22676C8B0056B990 /* Sources */,
+				20C5AFCE22676C8B0056B990 /* Frameworks */,
+				20C5AFCF22676C8B0056B990 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				20C5AFD722676C8B0056B990 /* PBXTargetDependency */,
+			);
+			name = MovieJournalMVCTests;
+			productName = MovieJournalMVCTests;
+			productReference = 20C5AFD122676C8B0056B990 /* MovieJournalMVCTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -135,6 +188,10 @@
 				TargetAttributes = {
 					2028BE5B22388CF200DA2508 = {
 						CreatedOnToolsVersion = 10.1;
+					};
+					20C5AFD022676C8B0056B990 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 2028BE5B22388CF200DA2508;
 					};
 				};
 			};
@@ -152,6 +209,7 @@
 			projectRoot = "";
 			targets = (
 				2028BE5B22388CF200DA2508 /* MovieJournalMVC */,
+				20C5AFD022676C8B0056B990 /* MovieJournalMVCTests */,
 			);
 		};
 /* End PBXProject section */
@@ -164,6 +222,13 @@
 				2028BE6C22388CF600DA2508 /* LaunchScreen.storyboard in Resources */,
 				2028BE6922388CF600DA2508 /* Assets.xcassets in Resources */,
 				2028BE6722388CF200DA2508 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		20C5AFCF22676C8B0056B990 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,7 +249,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		20C5AFCD22676C8B0056B990 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				20C5AFD422676C8B0056B990 /* MovieJournalMVCTests.swift in Sources */,
+				20C5AFDC22676CD10056B990 /* StoreTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		20C5AFD722676C8B0056B990 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2028BE5B22388CF200DA2508 /* MovieJournalMVC */;
+			targetProxy = 20C5AFD622676C8B0056B990 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		2028BE6522388CF200DA2508 /* Main.storyboard */ = {
@@ -356,6 +438,44 @@
 			};
 			name = Release;
 		};
+		20C5AFD822676C8B0056B990 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = MovieJournalMVCTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.detroitlabs.MovieJournalMVCTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MovieJournalMVC.app/MovieJournalMVC";
+			};
+			name = Debug;
+		};
+		20C5AFD922676C8B0056B990 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = MovieJournalMVCTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.detroitlabs.MovieJournalMVCTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MovieJournalMVC.app/MovieJournalMVC";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -373,6 +493,15 @@
 			buildConfigurations = (
 				2028BE7122388CF600DA2508 /* Debug */,
 				2028BE7222388CF600DA2508 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		20C5AFDA22676C8B0056B990 /* Build configuration list for PBXNativeTarget "MovieJournalMVCTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				20C5AFD822676C8B0056B990 /* Debug */,
+				20C5AFD922676C8B0056B990 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
