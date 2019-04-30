@@ -79,6 +79,13 @@ protocol FileManageable {
     func read(from url: URL) throws -> Data?
 }
 
+
+enum FileError: Error {
+    case couldNotWriteFileToDisk
+    case couldNotFindFile
+}
+
+
 extension FileManager: FileManageable {
     var documentsDirectory: URL {
         return urls(for: .documentDirectory, in: .userDomainMask)[0]
