@@ -49,4 +49,23 @@ class StoreTests: XCTestCase {
         store.remove(entry: movieReviewEntry)
         XCTAssertTrue(store.entries.count < 3)
     }
+    
+
+}
+
+
+class TestFileManager: FileManageable {
+    var documentsDirectory: URL
+    
+    
+    //any URL would work
+    func write(_ data: Data, to url: URL) throws {
+        <#code#>
+    }
+    
+    func read(from url: URL) throws -> Data? {
+        <#code#>
+    }
+    
+    
 }

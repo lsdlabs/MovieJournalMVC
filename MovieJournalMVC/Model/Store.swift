@@ -71,6 +71,7 @@ class Store {
     }
 }
 
+
 protocol FileManageable {
     var documentsDirectory: URL { get }
     
@@ -83,6 +84,8 @@ extension FileManager: FileManageable {
         return urls(for: .documentDirectory, in: .userDomainMask)[0]
     }
     
+    
+    
     func write(_ data: Data, to url: URL) throws {
         do {
             //try documentsDirectory.write(to: url, atomically: false, encoding: .utf8)
@@ -92,7 +95,7 @@ extension FileManager: FileManageable {
         }
     }
     
-    func read(from url: URL) throws -> Data? {
+    func read(from url: URL) throws -> Data? { //make non-optional data (ignore the error that comes back?)
         guard let data = try? Data(contentsOf: url) else {
             print("Error")
             // return or break
