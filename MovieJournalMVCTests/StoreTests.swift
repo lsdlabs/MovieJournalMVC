@@ -54,18 +54,18 @@ class StoreTests: XCTestCase {
 }
 
 
-class TestFileManager: FileManageable {
-    var documentsDirectory: URL
-    
-    
-    //any URL would work
-    func write(_ data: Data, to url: URL) throws {
-        <#code#>
-    }
-    
-    func read(from url: URL) throws -> Data? {
-        <#code#>
-    }
-    
-    
-}
+//class TestFileManager: FileManageable {
+//    var documentsDirectory: URL
+//    
+//    
+//    //any URL would work
+//    func write(_ data: Data, to url: URL) throws {
+//        <#code#>
+//    }
+//    
+//    func read(from url: URL) throws -> Data? {
+//        <#code#>
+//    }
+//    
+//    
+//}

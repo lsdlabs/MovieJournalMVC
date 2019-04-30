@@ -105,9 +105,10 @@ extension FileManager: FileManageable {
     
     func read(from url: URL) throws -> Data? { //make non-optional data (ignore the error that comes back?)
         guard let data = try? Data(contentsOf: url) else {
-            print("Error")
-            // return or break
-            return nil
+            throw FileError.couldNotFindFile
+//            print("Error")
+//            // return or break
+//            return nil
         }
         // do something with data
         return data
