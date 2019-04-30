@@ -98,7 +98,8 @@ extension FileManager: FileManageable {
             //try documentsDirectory.write(to: url, atomically: false, encoding: .utf8)
             try data.write(to: url, options: .atomic)
         } catch {
-            print(error)
+            throw FileError.couldNotWriteFileToDisk
+            //print(error)
         }
     }
     
