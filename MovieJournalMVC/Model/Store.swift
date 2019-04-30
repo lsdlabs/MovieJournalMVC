@@ -76,7 +76,7 @@ protocol FileManageable {
     var documentsDirectory: URL { get }
     
     func write(_ data: Data, to url: URL) throws
-    func read(from url: URL) throws -> Data?
+    func read(from url: URL) throws -> Data
 }
 
 
@@ -105,7 +105,7 @@ extension FileManager: FileManageable {
         }
     }
     
-    func read(from url: URL) throws -> Data? { //make non-optional data (ignore the error that comes back?)
+    func read(from url: URL) throws -> Data { //make non-optional data (ignore the error that comes back?)
         guard let data = try? Data(contentsOf: url) else {
             throw FileError.couldNotFindFile
 //            print("Error")
