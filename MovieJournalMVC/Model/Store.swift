@@ -64,7 +64,8 @@ class Store {
         let encoder = JSONEncoder()
         do {
             let data = try encoder.encode(entries)
-            try data.write(to: fileURL())
+//            try data.write(to: fileURL())
+            try FileManager.default.write(data, to: fileURL())
         } catch {
             print("Error saving to persistent storage: \(error)")
         }
