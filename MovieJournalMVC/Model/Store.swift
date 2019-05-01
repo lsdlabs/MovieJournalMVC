@@ -9,10 +9,18 @@
 import Foundation
 
 class Store {
-    static let shared = Store()
+//    static let shared = Store()
+    static let shared = Store(fileManageable: FileManager.default)
     private(set) var entries = [MovieReview]()
     
-    init() {
+    private let fileManager: FileManageable
+    
+//    init() {
+//        self.loadFromStorage()
+//    }
+    
+    init(fileManageable: FileManageable) {
+        self.fileManager = fileManageable
         self.loadFromStorage()
     }
     
@@ -44,7 +52,9 @@ class Store {
     
     func fileURL() -> URL {
 //        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        let documentsDirectoryUrl = FileManager.default.documentsDirectory
+//        let urls = self.FileManager.urls(for: .documentDirectory, in: .userDomainMask)
+//        let documentsDirectoryUrl = FileManager.default.documentsDirectory
+        let documentsDirectoryUrl = self.fileManager.documentsDirectory
         let fileName = "moviejournal.json"
 //        let documentsDirectoryURL = urls[0].appendingPathComponent(fileName)
         return documentsDirectoryUrl.appendingPathComponent(fileName)
@@ -54,7 +64,8 @@ class Store {
         let decoder = JSONDecoder()
         do {
 //            let data = try Data(contentsOf: fileURL())
-            let data = try FileManager.default.read(from: fileURL())
+//            let data = try FileManager.default.read(from: fileURL())
+            let data = try self.fileManager.read(from: fileURL())
             let movieReviewEntries = try decoder.decode([MovieReview].self, from: data)
             self.entries = movieReviewEntries
         } catch {
@@ -67,7 +78,8 @@ class Store {
         do {
             let data = try encoder.encode(entries)
 //            try data.write(to: fileURL())
-            try FileManager.default.write(data, to: fileURL())
+//            try FileManager.default.write(data, to: fileURL())
+            try self.fileManager.write(data, to: fileURL())
         } catch {
             print("Error saving to persistent storage: \(error)")
         }
@@ -91,9 +103,10 @@ enum FileError: Error {
 }
 
 
-extension FileManager {
+
+extension FileManageable {
     var documentsDirectory: URL {
-//        return urls(for: .documentDirectory, in: .userDomainMask)[0]
+        //        return urls(for: .documentDirectory, in: .userDomainMask)[0]
         return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
     }
     
@@ -114,9 +127,9 @@ extension FileManager {
     func read(from url: URL) throws -> Data { //make non-optional data (ignore the error that comes back?)
         guard let data = try? Data(contentsOf: url) else {
             throw FileError.couldNotFindFile
-//            print("Error")
-//            // return or break
-//            return nil
+            //            print("Error")
+            //            // return or break
+            //            return nil
         }
         // do something with data
         return data
@@ -125,9 +138,50 @@ extension FileManager {
     // return try String(contentsOf: url, encoding: .utf8)
     /*
      do {
-         return try Data(contentsOf: url)
+     return try Data(contentsOf: url)
      } catch {
-         print(error)
+     print(error)
      }
      */
 }
+
+//extension FileManager {
+//    var documentsDirectory: URL {
+////        return urls(for: .documentDirectory, in: .userDomainMask)[0]
+//        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+//    }
+//
+//
+//
+//
+//
+//    func write(_ data: Data, to url: URL) throws {
+//        do {
+//            //try documentsDirectory.write(to: url, atomically: false, encoding: .utf8)
+//            try data.write(to: url, options: .atomic)
+//        } catch {
+//            throw FileError.couldNotWriteFileToDisk
+//            //print(error)
+//        }
+//    }
+//
+//    func read(from url: URL) throws -> Data { //make non-optional data (ignore the error that comes back?)
+//        guard let data = try? Data(contentsOf: url) else {
+//            throw FileError.couldNotFindFile
+////            print("Error")
+////            // return or break
+////            return nil
+//        }
+//        // do something with data
+//        return data
+//    }
+//
+//    // return try String(contentsOf: url, encoding: .utf8)
+//    /*
+//     do {
+//         return try Data(contentsOf: url)
+//     } catch {
+//         print(error)
+//     }
+//     */
+//}

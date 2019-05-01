@@ -18,7 +18,7 @@ class StoreTests: XCTestCase {
     
     func testAddingEntry() {
         // Given
-        let store = Store()
+        let store = Store(fileManageable: FailingFileManager())
 //        let movieReviewEntry = MovieReviewEntry(title: "The Dark Knight", review: "Good Movie")
         let initialCount = store.entries.count
         
@@ -36,7 +36,7 @@ class StoreTests: XCTestCase {
     }
     
     func testRemovingEntry() {
-        let store = Store()
+        let store = Store(fileManageable: FailingFileManager())
         
         
         let movieReviewEntry = MovieReview(title: "The Dark Knight", review: "Good Movie")
@@ -56,16 +56,38 @@ class StoreTests: XCTestCase {
 
 //class TestFileManager: FileManageable {
 //    var documentsDirectory: URL
-//    
-//    
+//
+//
 //    //any URL would work
 //    func write(_ data: Data, to url: URL) throws {
-//        <#code#>
+//        throw FileError.couldNotWriteFileToDisk
 //    }
-//    
+//
 //    func read(from url: URL) throws -> Data? {
 //        <#code#>
 //    }
-//    
-//    
+//
+//
 //}
+
+
+class FailingFileManager: FileManageable {
+//    var documentsDirectory: URL
+    
+    //any URL would work
+    func write(_ data: Data, to url: URL) throws {
+        throw FileError.couldNotWriteFileToDisk
+    }
+    
+//    func read(from url: URL) throws -> Data {
+//        <#code#>
+//    }
+    
+    
+}
+
+class WorkingFileManager: FileManageable {
+    func write(_ data: Data, to url: URL) throws { }
+    func read(from url: URL) throws -> Data { return Data() }
+    
+}
