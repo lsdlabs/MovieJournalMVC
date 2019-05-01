@@ -86,14 +86,12 @@ class Store {
     }
 }
 
-
 protocol FileManageable {
     var documentsDirectory: URL { get }
     
     func write(_ data: Data, to url: URL) throws
     func read(from url: URL) throws -> Data
 }
-
 
 extension FileManager: FileManageable {}
 
@@ -102,17 +100,11 @@ enum FileError: Error {
     case couldNotFindFile
 }
 
-
-
 extension FileManageable {
     var documentsDirectory: URL {
         //        return urls(for: .documentDirectory, in: .userDomainMask)[0]
         return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
     }
-    
-    
-    
-    
     
     func write(_ data: Data, to url: URL) throws {
         do {
@@ -120,11 +112,11 @@ extension FileManageable {
             try data.write(to: url, options: .atomic)
         } catch {
             throw FileError.couldNotWriteFileToDisk
-            //print(error)
+            // print(error)
         }
     }
     
-    func read(from url: URL) throws -> Data { //make non-optional data (ignore the error that comes back?)
+    func read(from url: URL) throws -> Data { // make non-optional data (ignore the error that comes back?)
         guard let data = try? Data(contentsOf: url) else {
             throw FileError.couldNotFindFile
             //            print("Error")
@@ -145,7 +137,7 @@ extension FileManageable {
      */
 }
 
-//extension FileManager {
+// extension FileManager {
 //    var documentsDirectory: URL {
 ////        return urls(for: .documentDirectory, in: .userDomainMask)[0]
 //        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
@@ -184,4 +176,4 @@ extension FileManageable {
 //         print(error)
 //     }
 //     */
-//}
+// }

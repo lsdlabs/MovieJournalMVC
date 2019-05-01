@@ -30,31 +30,23 @@ class StoreTests: XCTestCase {
         // Then
         XCTAssertTrue(store.entries.count == 1)
         XCTAssertEqual(initialCount, 0)
-        
-        
-        
     }
     
     func testRemovingEntry() {
         let store = Store(fileManageable: FailingFileManager())
         
-        
         let movieReviewEntry = MovieReview(title: "The Dark Knight", review: "Good Movie")
         
-        //store.addEntryWith(title: "Hello", review: "World")
+        // store.addEntryWith(title: "Hello", review: "World")
         store.addEntryWith(title: movieReviewEntry.title, review: movieReviewEntry.review)
         XCTAssertTrue(store.entries.count > 0)
-        
         
         store.remove(entry: movieReviewEntry)
         XCTAssertTrue(store.entries.count < 3)
     }
-    
-
 }
 
-
-//class TestFileManager: FileManageable {
+// class TestFileManager: FileManageable {
 //    var documentsDirectory: URL
 //
 //
@@ -68,13 +60,12 @@ class StoreTests: XCTestCase {
 //    }
 //
 //
-//}
-
+// }
 
 class FailingFileManager: FileManageable {
 //    var documentsDirectory: URL
     
-    //any URL would work
+    // any URL would work
     func write(_ data: Data, to url: URL) throws {
         throw FileError.couldNotWriteFileToDisk
     }
@@ -82,12 +73,9 @@ class FailingFileManager: FileManageable {
 //    func read(from url: URL) throws -> Data {
 //        <#code#>
 //    }
-    
-    
 }
 
 class WorkingFileManager: FileManageable {
-    func write(_ data: Data, to url: URL) throws { }
+    func write(_ data: Data, to url: URL) throws {}
     func read(from url: URL) throws -> Data { return Data() }
-    
 }
