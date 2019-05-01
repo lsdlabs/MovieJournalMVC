@@ -43,10 +43,11 @@ class Store {
     // MARK: - Persistence
     
     func fileURL() -> URL {
-        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+//        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentsDirectoryUrl = FileManager.default.documentsDirectory
         let fileName = "moviejournal.json"
-        let documentsDirectoryURL = urls[0].appendingPathComponent(fileName)
-        return documentsDirectoryURL
+//        let documentsDirectoryURL = urls[0].appendingPathComponent(fileName)
+        return documentsDirectoryUrl.appendingPathComponent(fileName)
     }
     
     func loadFromStorage() {
