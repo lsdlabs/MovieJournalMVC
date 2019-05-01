@@ -83,19 +83,22 @@ protocol FileManageable {
 }
 
 
+extension FileManager: FileManageable {}
+
+enum FileError: Error {
+    case couldNotWriteFileToDisk
+    case couldNotFindFile
+}
 
 
-
-extension FileManager: FileManageable {
+extension FileManager {
     var documentsDirectory: URL {
-        return urls(for: .documentDirectory, in: .userDomainMask)[0]
+//        return urls(for: .documentDirectory, in: .userDomainMask)[0]
+        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
     }
     
     
-    enum FileError: Error {
-        case couldNotWriteFileToDisk
-        case couldNotFindFile
-    }
+    
     
     
     func write(_ data: Data, to url: URL) throws {
