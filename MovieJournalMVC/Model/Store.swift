@@ -53,7 +53,8 @@ class Store {
     func loadFromStorage() {
         let decoder = JSONDecoder()
         do {
-            let data = try Data(contentsOf: fileURL())
+//            let data = try Data(contentsOf: fileURL())
+            let data = try FileManager.default.read(from: fileURL())
             let movieReviewEntries = try decoder.decode([MovieReview].self, from: data)
             self.entries = movieReviewEntries
         } catch {
