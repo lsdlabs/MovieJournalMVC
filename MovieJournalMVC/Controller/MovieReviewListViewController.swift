@@ -58,8 +58,15 @@ class MovieReviewListViewController: UITableViewController {
             let entry = movieStore.entries[indexPath.row]
             movieStore.remove(entry: entry)
             
+//            Notifications or KVO?
+//            unidirectional data flow!
+            
             // Delete the row from the table view
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
 }
+/*
+ Notifications or KVO?
+ unidirectional data flow!
+ */

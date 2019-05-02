@@ -10,8 +10,12 @@ import Foundation
 
 class Store {
 //    static let shared = Store()
-    static let shared = Store(fileManageable: FileManager.default)
-    private(set) var entries = [MovieReview]()
+    static let shared = Store()
+    private(set) var entries = [MovieReview]() {
+        didSet {
+            saveToStorage()
+        }
+    }
     
     private let fileManager: FileManageable
     
@@ -19,8 +23,8 @@ class Store {
 //        self.loadFromStorage()
 //    }
     
-    init(fileManageable: FileManageable) {
-        self.fileManager = fileManageable
+    init(fileManager: FileManageable = FileManager.default) {
+        self.fileManager = fileManager
         self.loadFromStorage()
     }
     
@@ -28,44 +32,45 @@ class Store {
     func addEntryWith(title: String, review: String) {
         let entry = MovieReview(title: title, review: review)
         entries.append(entry)
-        saveToStorage()
+    }
+    
+    func add(_ review: MovieReview) {
+        entries.append(review)
     }
     
     /// removes the entry from the entries array
     func remove(entry: MovieReview) {
         if let entryIndex = entries.index(of: entry) {
-            self.entries.remove(at: entryIndex)
-            self.saveToStorage()
+            entries.remove(at: entryIndex)
         }
     }
     
     ///takes in an existing entry as a parameter, as well as the title and text strings to update the entry with
     func update(entry: MovieReview, with title: String, review: String) {
-        if let index = self.entries.index(of: entry) {
-            self.entries[index].title = title
-            self.entries[index].review = review
-            self.saveToStorage()
+        if let index = entries.index(of: entry) {
+            entries[index].title = title
+            entries[index].review = review
         }
     }
     
     // MARK: - Persistence
     
-    func fileURL() -> URL {
-//        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-//        let urls = self.FileManager.urls(for: .documentDirectory, in: .userDomainMask)
-//        let documentsDirectoryUrl = FileManager.default.documentsDirectory
-        let documentsDirectoryUrl = self.fileManager.documentsDirectory
-        let fileName = "moviejournal.json"
-//        let documentsDirectoryURL = urls[0].appendingPathComponent(fileName)
-        return documentsDirectoryUrl.appendingPathComponent(fileName)
-    }
+    var fileName = "moviejournal.json"
+    
+   
+//    func fileURL() -> URL {
+//
+//        let documentsDirectoryUrl = self.fileManager.documentsDirectory
+//        let fileName = "moviejournal.json"
+//        return documentsDirectoryUrl.appendingPathComponent(fileName)
+//    }
     
     func loadFromStorage() {
         let decoder = JSONDecoder()
         do {
 //            let data = try Data(contentsOf: fileURL())
 //            let data = try FileManager.default.read(from: fileURL())
-            let data = try self.fileManager.read(from: fileURL())
+            let data = try fileManager.read(fromFile: fileName)
             let movieReviewEntries = try decoder.decode([MovieReview].self, from: data)
             self.entries = movieReviewEntries
         } catch {
@@ -79,7 +84,7 @@ class Store {
             let data = try encoder.encode(entries)
 //            try data.write(to: fileURL())
 //            try FileManager.default.write(data, to: fileURL())
-            try self.fileManager.write(data, to: fileURL())
+            try fileManager.write(data, toFile: fileName)
         } catch {
             print("Error saving to persistent storage: \(error)")
         }
@@ -93,7 +98,25 @@ protocol FileManageable {
     func read(from url: URL) throws -> Data
 }
 
-extension FileManager: FileManageable {}
+extension FileManager: FileManageable {
+    var documentsDirectory: URL {
+        return urls(for: .documentDirectory, in: .userDomainMask)[0]
+    }
+    
+    func write(_ data: Data, to url: URL) throws {
+        let success = createFile(atPath: url.absoluteString, contents: data, attributes: nil)
+        
+        if !success { throw FileError.couldNotWriteFileToDisk }
+    }
+    
+    func read(from url: URL) throws -> Data {
+        guard let contents = contents(atPath: url.absoluteString) else {
+            throw FileError.couldNotFindFile
+        }
+        
+        return contents
+    }
+}
 
 enum FileError: Error {
     case couldNotWriteFileToDisk
@@ -101,40 +124,13 @@ enum FileError: Error {
 }
 
 extension FileManageable {
-    var documentsDirectory: URL {
-        //        return urls(for: .documentDirectory, in: .userDomainMask)[0]
-        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+    func write(_ data: Data, toFile fileName: String) throws {
+        try write(data, to: documentsDirectory.appendingPathComponent(fileName))
     }
     
-    func write(_ data: Data, to url: URL) throws {
-        do {
-            //try documentsDirectory.write(to: url, atomically: false, encoding: .utf8)
-            try data.write(to: url, options: .atomic)
-        } catch {
-            throw FileError.couldNotWriteFileToDisk
-            // print(error)
-        }
+    func read(fromFile fileName: String) throws -> Data {
+        return try read(from: documentsDirectory.appendingPathComponent(fileName))
     }
-    
-    func read(from url: URL) throws -> Data { // make non-optional data (ignore the error that comes back?)
-        guard let data = try? Data(contentsOf: url) else {
-            throw FileError.couldNotFindFile
-            //            print("Error")
-            //            // return or break
-            //            return nil
-        }
-        // do something with data
-        return data
-    }
-    
-    // return try String(contentsOf: url, encoding: .utf8)
-    /*
-     do {
-     return try Data(contentsOf: url)
-     } catch {
-     print(error)
-     }
-     */
 }
 
 // extension FileManager {
