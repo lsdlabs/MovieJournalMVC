@@ -21,7 +21,6 @@ class StoreTests: XCTestCase {
         let store = Store(fileManager: TestFileManager())
 //        let movieReviewEntry = MovieReviewEntry(title: "The Dark Knight", review: "Good Movie")
         
-        
         // When
         let initialCount = store.entries.count
         store.addEntryWith(title: "Hello", review: "World")
@@ -46,7 +45,7 @@ class StoreTests: XCTestCase {
     }
 }
 
- class TestFileManager: FileManageable {
+class TestFileManager: FileManageable {
     let path: String
     var writtenData: Data?
     let failWrite: Bool
@@ -59,7 +58,7 @@ class StoreTests: XCTestCase {
     }
     
     var documentsDirectory: URL { return URL(fileURLWithPath: path) }
-
+    
     func write(_ data: Data, to url: URL) throws {
         if failWrite {
             // Throw an error
@@ -67,7 +66,7 @@ class StoreTests: XCTestCase {
             writtenData = data
         }
     }
-
+    
     func read(from url: URL) throws -> Data {
         if failRead {
             throw FileError.couldNotFindFile
@@ -75,9 +74,9 @@ class StoreTests: XCTestCase {
             return writtenData ?? Data()
         }
     }
- }
+}
 
-//class FailingFileManager: FileManageable {
+// class FailingFileManager: FileManageable {
 ////    var documentsDirectory: URL
 //
 //    // any URL would work
@@ -88,9 +87,9 @@ class StoreTests: XCTestCase {
 ////    func read(from url: URL) throws -> Data {
 ////        <#code#>
 ////    }
-//}
+// }
 //
-//class WorkingFileManager: FileManageable {
+// class WorkingFileManager: FileManageable {
 //    func write(_ data: Data, to url: URL) throws {}
 //    func read(from url: URL) throws -> Data { return Data() }
-//}
+// }

@@ -25,7 +25,7 @@ class Store {
     
     init(fileManager: FileManageable = FileManager.default) {
         self.fileManager = fileManager
-        self.loadFromStorage()
+        loadFromStorage()
     }
     
     /// creates a new instance of MovieReview, and adds it to the entries array
@@ -57,7 +57,6 @@ class Store {
     
     var fileName = "moviejournal.json"
     
-   
 //    func fileURL() -> URL {
 //
 //        let documentsDirectoryUrl = self.fileManager.documentsDirectory
@@ -72,7 +71,7 @@ class Store {
 //            let data = try FileManager.default.read(from: fileURL())
             let data = try fileManager.read(fromFile: fileName)
             let movieReviewEntries = try decoder.decode([MovieReview].self, from: data)
-            self.entries = movieReviewEntries
+            entries = movieReviewEntries
         } catch {
             print("Error retrieving from persistent storage: \(error)")
         }
