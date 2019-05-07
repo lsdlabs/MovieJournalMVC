@@ -53,6 +53,8 @@ class Store {
         if let index = entries.index(of: entry) {
             entries[index].title = title
             entries[index].review = review
+            
+            NotificationCenter.default.post(name: Notifications.movieWasChanged, object: entries[index])
         }
     }
     
