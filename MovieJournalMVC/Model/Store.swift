@@ -19,10 +19,6 @@ class Store {
     
     private let fileManager: FileManageable
     
-//    init() {
-//        self.loadFromStorage()
-//    }
-    
     init(fileManager: FileManageable = FileManager.default) {
         self.fileManager = fileManager
         loadFromStorage()
@@ -57,18 +53,9 @@ class Store {
     
     var fileName = "moviejournal.json"
     
-//    func fileURL() -> URL {
-//
-//        let documentsDirectoryUrl = self.fileManager.documentsDirectory
-//        let fileName = "moviejournal.json"
-//        return documentsDirectoryUrl.appendingPathComponent(fileName)
-//    }
-    
     func loadFromStorage() {
         let decoder = JSONDecoder()
         do {
-//            let data = try Data(contentsOf: fileURL())
-//            let data = try FileManager.default.read(from: fileURL())
             let data = try fileManager.read(fromFile: fileName)
             let movieReviewEntries = try decoder.decode([MovieReview].self, from: data)
             entries = movieReviewEntries
@@ -81,8 +68,6 @@ class Store {
         let encoder = JSONEncoder()
         do {
             let data = try encoder.encode(entries)
-//            try data.write(to: fileURL())
-//            try FileManager.default.write(data, to: fileURL())
             try fileManager.write(data, toFile: fileName)
         } catch {
             print("Error saving to persistent storage: \(error)")
@@ -131,44 +116,3 @@ extension FileManageable {
         return try read(from: documentsDirectory.appendingPathComponent(fileName))
     }
 }
-
-// extension FileManager {
-//    var documentsDirectory: URL {
-////        return urls(for: .documentDirectory, in: .userDomainMask)[0]
-//        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-//    }
-//
-//
-//
-//
-//
-//    func write(_ data: Data, to url: URL) throws {
-//        do {
-//            //try documentsDirectory.write(to: url, atomically: false, encoding: .utf8)
-//            try data.write(to: url, options: .atomic)
-//        } catch {
-//            throw FileError.couldNotWriteFileToDisk
-//            //print(error)
-//        }
-//    }
-//
-//    func read(from url: URL) throws -> Data { //make non-optional data (ignore the error that comes back?)
-//        guard let data = try? Data(contentsOf: url) else {
-//            throw FileError.couldNotFindFile
-////            print("Error")
-////            // return or break
-////            return nil
-//        }
-//        // do something with data
-//        return data
-//    }
-//
-//    // return try String(contentsOf: url, encoding: .utf8)
-//    /*
-//     do {
-//         return try Data(contentsOf: url)
-//     } catch {
-//         print(error)
-//     }
-//     */
-// }
