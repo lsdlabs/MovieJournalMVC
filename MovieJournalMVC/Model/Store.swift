@@ -16,6 +16,11 @@ class Store {
         }
     }
     
+    struct Notifications {
+        static let movieWasChanged = Notification.Name("movieWasChanged")
+        
+    }
+    
     private let fileManager: FileManageable
     
     init(fileManager: FileManageable = FileManager.default) {
@@ -26,11 +31,13 @@ class Store {
     /// creates a new instance of MovieReview, and adds it to the entries array
     func addEntryWith(title: String, review: String) {
         let entry = MovieReview(title: title, review: review)
-        entries.append(entry)
+        //entries.append(entry)
+        self.add(entry)
     }
     
     func add(_ review: MovieReview) {
         entries.append(review)
+        NotificationCenter.default.post(name: Notifications.movieWasChanged, object: review)
     }
     
     /// removes the entry from the entries array
