@@ -44,6 +44,7 @@ class Store {
     func remove(entry: MovieReview) {
         if let entryIndex = entries.index(of: entry) {
             entries.remove(at: entryIndex)
+            NotificationCenter.default.post(name: Notifications.movieWasChanged, object: entry)
         }
     }
     
