@@ -82,8 +82,3 @@ class MovieReviewListViewController: UITableViewController {
         }
     }
 }
-
-/*
- Notifications or KVO?
- unidirectional data flow!
- */
