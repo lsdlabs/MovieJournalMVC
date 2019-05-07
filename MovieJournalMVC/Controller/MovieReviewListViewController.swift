@@ -11,9 +11,25 @@ import UIKit
 class MovieReviewListViewController: UITableViewController {
     // MARK: Lifecycle
     
+    var reviews: [MovieReview] = []
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.reviews = Store.shared.entries
+        NotificationCenter.default.addObserver(self, selector: #selector(self.movieChanged), name: Store.Notifications.movieWasChanged, object: nil)
+    }
+    
+    @objc func movieChanged(note: Notification) {
+        DispatchQueue.main.async {
+            self.reviews = Store.shared.entries
+            self.tableView.reloadData()
+        }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableView.reloadData()
+        self.tableView.reloadData()
     }
     
     // MARK: Segue
@@ -27,7 +43,8 @@ class MovieReviewListViewController: UITableViewController {
         case .showEntry:
             if let detailViewController = segue.destination as? EntryDetailViewController,
                 let selectedRow = tableView.indexPathForSelectedRow?.row {
-                let entry = Store.shared.entries[selectedRow]
+                // let entry = Store.shared.entries[selectedRow]
+                let entry = self.reviews[selectedRow]
                 detailViewController.entry = entry
             }
         }
@@ -36,12 +53,14 @@ class MovieReviewListViewController: UITableViewController {
     // MARK: UITableViewDataSource/Delegate
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Store.shared.entries.count
+        // return Store.shared.entries.count
+        return self.reviews.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: MovieReviewCell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MovieReviewCell
-        let entry = Store.shared.entries[indexPath.row]
+        // let entry = Store.shared.entries[indexPath.row]
+        let entry = self.reviews[indexPath.row]
         cell.setup(using: entry)
         
         return cell
@@ -58,14 +77,12 @@ class MovieReviewListViewController: UITableViewController {
             let entry = movieStore.entries[indexPath.row]
             movieStore.remove(entry: entry)
             
-//            Notifications or KVO?
-//            unidirectional data flow!
-            
             // Delete the row from the table view
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
 }
+
 /*
  Notifications or KVO?
  unidirectional data flow!
