@@ -9,7 +9,6 @@
 import Foundation
 
 class Store {
-//    static let shared = Store()
     static let shared = Store()
     private(set) var entries = [MovieReview]() {
         didSet {
