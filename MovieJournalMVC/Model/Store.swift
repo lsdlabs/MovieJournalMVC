@@ -97,13 +97,15 @@ extension FileManager: FileManageable {
     }
     
     func write(_ data: Data, to url: URL) throws {
-        let success = createFile(atPath: url.absoluteString, contents: data, attributes: nil)
+//        let success = createFile(atPath: url.absoluteString, contents: data, attributes: nil)
         
+        let success = createFile(atPath: url.path, contents: data, attributes: nil)
         if !success { throw FileError.couldNotWriteFileToDisk }
     }
     
     func read(from url: URL) throws -> Data {
-        guard let contents = contents(atPath: url.absoluteString) else {
+//        guard let contents = contents(atPath: url.absoluteString) else {
+        guard let contents = contents(atPath: url.path) else {
             throw FileError.couldNotFindFile
         }
         
