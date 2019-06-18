@@ -21,10 +21,8 @@ class MovieReviewListViewController: UITableViewController {
     }
     
     @objc func movieChanged(note: Notification) {
-        DispatchQueue.main.async {
-            self.reviews = Store.shared.entries
-            self.tableView.reloadData()
-        }
+        self.reviews = Store.shared.entries
+        self.tableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,6 +37,7 @@ class MovieReviewListViewController: UITableViewController {
             return
         }
         
+        // switch to guards
         switch identifier {
         case .showEntry:
             if let detailViewController = segue.destination as? EntryDetailViewController,
@@ -77,8 +76,8 @@ class MovieReviewListViewController: UITableViewController {
             let entry = movieStore.entries[indexPath.row]
             movieStore.remove(entry: entry)
             
-            // Delete the row from the table view
-            tableView.deleteRows(at: [indexPath], with: .fade)
+//            // Delete the row from the table view
+//            tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
 }
